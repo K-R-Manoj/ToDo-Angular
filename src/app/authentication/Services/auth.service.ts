@@ -22,7 +22,7 @@ export class AuthService {
       client_id: '30qr4s2bfme2sv2lda73c3f0vh',
       response_type: 'code',
       scope: (['email', 'openid', 'profile', 'aws.cognito.signin.user.admin']).join('+'), //After added scope to get custom attribute, you need to give permission App client in Attribute read and write permissions(edit the permission)
-      redirect_uri: 'http://localhost:4200/callback',
+      redirect_uri: 'http://to-do-angular-psi.vercel.app/callback',
     }
   }
 
