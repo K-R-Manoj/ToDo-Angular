@@ -1,0 +1,13 @@
+<app-side-navigation>
+    <app-search></app-search>
+    <div class="cards" *ngIf="!loading">
+        <app-note *ngFor="let note of Notes" [note]="note" (updateORdelete)="refresh($event)"></app-note>
+        <mat-card class="add_Note" (click)="onAddNote()">
+            <p>Click here to add new Note</p>
+        </mat-card>
+    </div>
+
+    <div class="loading" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+</app-side-navigation>

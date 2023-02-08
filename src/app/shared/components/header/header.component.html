@@ -1,0 +1,68 @@
+<mat-toolbar>
+  <button
+    mat-icon-button
+    (click)="toggleSideNav()"
+    matTooltipClass="multiline-tooltip"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <a routerLink="/home" class="logo">
+    <img
+    class="logo-image"
+    [src]="config.logo.lightLogo"
+    [alt]="config.logo.alt"
+    [ngStyle]="{ width: config?.logo?.width, height: config?.logo?.height }"
+    />
+  </a>
+  <span class="flexExpand"></span>
+
+<div class="filter">
+
+  <button mat-mini-fab [matMenuTriggerFor]="Sort" color="primary" class="sorticon" matTooltip="Sort"><mat-icon>filter_list</mat-icon></button>
+  <mat-menu #Sort="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="Title"><mat-icon>sort_by_alpha</mat-icon>Title</button>
+      <button mat-menu-item [matMenuTriggerFor]="TimeOrder"><mat-icon>access_time</mat-icon>Time</button>
+  </mat-menu>
+  
+  <mat-menu #Title="matMenu">
+      <button mat-menu-item (click)="sortTitle('A-Z')">A-Z</button>
+      <button mat-menu-item (click)="sortTitle('Z-A')">Z-A</button>
+  </mat-menu>
+  
+  <mat-menu #TimeOrder="matMenu">
+      <button mat-menu-item (click)="sortTime('Oldest')">Oldest</button>
+      <button mat-menu-item (click)="sortTime('Newest')">Latest</button>
+  </mat-menu>
+
+  <button
+    mat-mini-fab
+    color="primary"
+    class="btn-profile"
+    matTooltip="Profile"
+    [matMenuTriggerFor]="profileMenu"
+    *ngIf="config?.showUserProfile"
+    >
+    {{loginName.charAt(0)|uppercase}}
+  </button>
+</div>
+</mat-toolbar>
+
+<mat-menu #profileMenu="matMenu">
+  <div class="user-info" mat-menu-item [matTooltip]="loginName">
+    <mat-icon>email</mat-icon>
+    <span>{{loginName}}</span>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div *ngIf="config?.showLogoutButton">
+    <mat-divider></mat-divider>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>logout</span>
+    </button>
+  </div>
+</mat-menu>
+
+<div class="loading-shade" *ngIf="isLogout">
+  <mat-spinner></mat-spinner>
+</div>

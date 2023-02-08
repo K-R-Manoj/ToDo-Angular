@@ -1,0 +1,18 @@
+.logo {
+    position: relative;
+    bottom: -7px;
+}
+.header
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flexExpand {
+    flex: 1 1 auto;
+}
+
+.filter button{
+    margin: 0% 5%;
+}

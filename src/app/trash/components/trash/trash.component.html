@@ -1,0 +1,22 @@
+<div>
+    <mat-card class="example-card" [ngStyle]="{backgroundColor:Tnote.Color}">
+        <mat-card-header>
+                <mat-card-title>{{Tnote.Title}}</mat-card-title>
+                <mat-card-subtitle>{{Tnote.Tag}}</mat-card-subtitle>
+                <span class="flexExpand"></span>
+                <div class="icons" align="end">  
+                    <button mat-icon-button [matMenuTriggerFor]="Edit_Delete"><mat-icon>more_vert</mat-icon></button>
+                    <mat-menu #Edit_Delete="matMenu">
+                        <button mat-menu-item (click)="onRetrive()"><mat-icon>assignment_return</mat-icon>Retrive</button>
+                        <button mat-menu-item id="deletefathom" (click)="onDelete()"><mat-icon>delete</mat-icon>Delete</button>
+                    </mat-menu>
+                </div>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{Tnote.Description}}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>{{Tnote.Time | date:'medium'}}</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

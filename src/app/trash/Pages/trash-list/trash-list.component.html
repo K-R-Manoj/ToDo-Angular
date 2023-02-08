@@ -1,0 +1,16 @@
+<app-side-navigation>
+    <app-search></app-search>
+    <div class="cards" *ngIf="TrashNotes.length && !loading;else NoTrash">
+        <app-trash *ngFor="let trash of TrashNotes" [Tnote]="trash" (delete_Retrive)="refresh($event)"></app-trash>
+    </div>
+
+    <div class="loading" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+    </div>
+</app-side-navigation>
+
+<ng-template #NoTrash >
+    <div class="Notrash" *ngIf="!loading">
+        <h1>No Trash To Display</h1>
+    </div>
+</ng-template>

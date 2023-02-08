@@ -1,0 +1,25 @@
+<app-header (isNav)="getSideNavChanges($event)" [isSideNavOpen]="isSideNavOpen"></app-header>
+<mat-sidenav-container
+  class="sidenav-container"
+  (backdropClick)="sidenavclose(false)"
+>
+  <mat-sidenav
+    class="sidenav mat-elevation-z1"
+    #sidenav
+    [opened]="isSideNavOpen"
+    (keydown.escape)="sidenavclose(false)" 
+  >
+    <mat-nav-list class="side-menu">
+      <ng-container color="primary" mat-list-item *ngFor="let route of navigationRoutes">
+        <a class="nav-item" color="primary" mat-list-item routerLinkActive="active" [routerLink]="route?.routerLink">
+          <mat-icon class="nav-icons">{{ route?.icon }}</mat-icon> <span>{{ route?.label }}</span>
+        </a>
+        <mat-divider class="nav-divider" *ngIf="route?.showDivider"></mat-divider>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

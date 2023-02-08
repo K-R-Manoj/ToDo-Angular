@@ -1,0 +1,52 @@
+.sidenav-container {
+  
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: calc(100vh - 64px);
+
+  mat-sidenav-content {
+    height: calc(100vh - 64px);
+  }
+}
+
+.nav-item {
+  height: -40px !important;
+}
+
+.nav-divider {
+  margin: 16px 0;
+}
+
+.sidenav {
+  width: 220px;
+  border: none;
+}
+
+
+.side-menu {
+  margin-top: 48px;
+
+  a {
+    font-size: 18px;
+    font-weight:300;
+    margin-bottom: 4px;
+  }
+}
+
+.active {
+  background-color:rgb(132, 0, 158) !important;
+  color:rgb(255, 255, 255) !important;
+  font-weight: 100 !important;
+  cursor: default !important;
+}
+
+
+.nav-icons {
+  vertical-align: sub;
+  margin-right: 16px;
+  z-index: 100;
+}
+
+.mat-drawer-container {
+  background-color: transparent !important;
+}

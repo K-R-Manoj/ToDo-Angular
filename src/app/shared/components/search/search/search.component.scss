@@ -1,0 +1,22 @@
+.search
+{
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+}
+.search input
+{
+    height: 30px;
+    font-size: 20px;
+    border-radius:20px;
+    outline: none;
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+  
+:-moz-placeholder {
+text-align: center;
+}
