@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
         
         if(result.userDetails?.body.error === "invalid_token")
         {
-          console.log("Invalid Token");
+          console.log("Invalid Token", result);
           
           this.authService.logout()
         }
