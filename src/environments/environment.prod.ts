@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  intermediate_server_url: 'http://localhost:3000',
-  backend_server_url: 'http://localhost:5000',
+  intermediate_server_url: 'https://intermediateserver-todo.onrender.com',
+  backend_server_url: 'https://server-todo-rcrp.onrender.com',
 };
