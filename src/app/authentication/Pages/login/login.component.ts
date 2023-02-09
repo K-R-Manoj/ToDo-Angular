@@ -40,9 +40,10 @@ export class LoginComponent implements OnInit {
         const {cognitoAccessToken='', token='', tokenExpiresAt=''} = {...res};
         const {email=''} = result.userDetails.body;
         
-        this.router.navigateByUrl('home')
         if(result.userDetails?.body.error === "invalid_token")
         {
+          console.log("Invalid Token");
+          
           this.authService.logout()
         }
         else
@@ -54,7 +55,9 @@ export class LoginComponent implements OnInit {
             "email":email
           }
           localStorage.setItem("SessionUser",JSON.stringify(SessionUser));
-          this.router.navigateByUrl('home')
+          this.router.navigateByUrl('home');
+          console.log("Navigate to Home ");
+          
         }
       })
     }
