@@ -42,8 +42,6 @@ export class LoginComponent implements OnInit {
         
         if(result.userDetails?.body.error === "invalid_token")
         {
-          console.log("Invalid Token", result);
-          
           this.authService.logout()
         }
         else
@@ -56,8 +54,6 @@ export class LoginComponent implements OnInit {
           }
           localStorage.setItem("SessionUser",JSON.stringify(SessionUser));
           this.router.navigateByUrl('home');
-          console.log("Navigate to Home ");
-          
         }
       })
     }
