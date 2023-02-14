@@ -27,19 +27,15 @@
           buttons[i].addEventListener('click', handleFormEvent);
           buttons[i].addEventListener('auxclick', handleFormEvent);
       }
-    }, 1000);
+    }, 9000);
 
     function handleFormEvent(event) {
-      console.log(event,".....event");
       event.preventDefault();
       let attributes = event.target.getAttribute('data-analytics').split(/,(.+)/);
       console.log(attributes,".....attributes");
       let events = [JSON.parse(attributes[0]), JSON.parse(attributes[1] || '{}')];
       console.log(events,"......events");
       plausible(...events);
-      setTimeout(function () {
-          event.target.form.submit();
-      }, 150);
     }
 
   </script>
