@@ -10,6 +10,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdn.usefathom.com/script.js" data-site="HQDASYGS" defer></script>
+    <!-- Plausible Start -->
+    <script defer data-domain="to-do-angular-psi.vercel.app,rollup.rollup-lightmetrics-todo.co" src="https://plausible.io/js/script.local.tagged-events.js"></script>
+    <!-- Plausible End -->
 </head>
 <body class="mat-typography">
   <app-root></app-root>
@@ -23,8 +26,24 @@
   </script>
   <!-- Fathom End -->
 
-  <!-- Plausible Start -->
-  <script defer data-domain="to-do-angular-psi.vercel.app" src="https://plausible.io/js/script.js"></script>
-  <!-- Plausible End -->
+  <!-- Plausible Start Event -->
+  <script>
+    let buttons = document.querySelectorAll("button[data-analytics]");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', handleFormEvent);
+        buttons[i].addEventListener('auxclick', handleFormEvent);
+    }
+  
+    function handleFormEvent(event) {
+        event.preventDefault();
+        let attributes = event.target.getAttribute('data-analytics').split(/,(.+)/);
+        let events = [JSON.parse(attributes[0]), JSON.parse(attributes[1] || '{}')];
+        plausible(...events);
+        setTimeout(function () {
+            event.target.form.submit();
+        }, 150);
+    }
+  </script>
+  <!-- Plausible End Event -->
 </body>
 </html>
