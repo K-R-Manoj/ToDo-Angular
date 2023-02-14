@@ -23,7 +23,9 @@
     window.addEventListener('load', (event) => {
       console.log(event,"....event on load event listioner");
       let buttons = document.querySelectorAll("button[data-analytics]");
+      console.log(buttons,"....butttons");
       document.getElementById('deletebutton').addEventListener('click', () => {
+        console.log(".....button clicked");
         plausible('Delete', {props: {method: 'HTTP', Region: 'Europe'}})
       });
     });
