@@ -20,29 +20,27 @@
 
   <!-- Plausible Start Event -->
   <script>
-    window.addEventListener('popstate', (event) => {
-
+    window.setInterval(function(){
       let buttons = document.querySelectorAll("button[data-analytics]");
       console.log(buttons,".....buttons");
       for (var i = 0; i < buttons.length; i++) {
           buttons[i].addEventListener('click', handleFormEvent);
           buttons[i].addEventListener('auxclick', handleFormEvent);
       }
-    
-      function handleFormEvent(event) {
-        console.log(event,".....event");
-          event.preventDefault();
-          let attributes = event.target.getAttribute('data-analytics').split(/,(.+)/);
-          console.log(attributes,".....attributes");
-          let events = [JSON.parse(attributes[0]), JSON.parse(attributes[1] || '{}')];
-          console.log(events,"......events");
-          plausible(...events);
-          setTimeout(function () {
-              event.target.form.submit();
-          }, 150);
-      }
+    }, 1000);
 
-    });
+    function handleFormEvent(event) {
+      console.log(event,".....event");
+      event.preventDefault();
+      let attributes = event.target.getAttribute('data-analytics').split(/,(.+)/);
+      console.log(attributes,".....attributes");
+      let events = [JSON.parse(attributes[0]), JSON.parse(attributes[1] || '{}')];
+      console.log(events,"......events");
+      plausible(...events);
+      setTimeout(function () {
+          event.target.form.submit();
+      }, 150);
+    }
 
   </script>
   <!-- Plausible End Event -->
