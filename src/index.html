@@ -22,7 +22,6 @@
   <script>
     window.setInterval(function(){
       let buttons = document.querySelectorAll("button[data-analytics]");
-      console.log(buttons,".....buttons");
       for (var i = 0; i < buttons.length; i++) {
           buttons[i].addEventListener('click', handleFormEvent);
           buttons[i].addEventListener('auxclick', handleFormEvent);
