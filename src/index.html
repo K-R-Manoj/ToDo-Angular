@@ -10,35 +10,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://cdn.usefathom.com/script.js" data-site="HQDASYGS" defer></script>
-  <!-- Plausible Start -->
-    <script defer data-domain="to-do-angular-psi.vercel.app,rollup.lightmetrics-todo.com" src="https://plausible.io/js/script.local.tagged-events.file-downloads.outbound-links.js"></script>
-    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-    <!-- Plausible End -->
+  <!-- Matomo Tag Manager -->
+  <script>
+    var _mtm = window._mtm = window._mtm || [];
+    _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src='https://cdn.matomo.cloud/netflixhellovercelapp.matomo.cloud/container_hCkSSkGZ.js'; s.parentNode.insertBefore(g,s);
+  </script>
+  <!-- End Matomo Tag Manager -->
 </head>
 <body class="mat-typography">
   <app-root></app-root>
-
-  <!-- Plausible Start Event -->
-  <script>
-    window.setInterval(function(){
-      let buttons = document.querySelectorAll("button[data-analytics]");
-      for (var i = 0; i < buttons.length; i++) {
-          buttons[i].addEventListener('click', handleFormEvent);
-          buttons[i].addEventListener('auxclick', handleFormEvent);
-      }
-    }, 1000);
-
-    function handleFormEvent(event) {
-      event.preventDefault();
-      let attributes = event.target.getAttribute('data-analytics').split(/,(.+)/);
-      console.log(attributes,".....attributes");
-      let events = [JSON.parse(attributes[0]), JSON.parse(attributes[1] || '{}')];
-      console.log(events,"......events");
-      plausible(...events);
-    }
-
-  </script>
-  <!-- Plausible End Event -->
 
 </body>
 </html>
