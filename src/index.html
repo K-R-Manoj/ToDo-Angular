@@ -10,23 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- default consent -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    console.log(window,"...window");
-    function gtag() {
-      dataLayer.push(arguments);
-      console.log(dataLayer,"datalayer");
-    }
-    gtag('consent','default',{
-      'ad_storage':'denied',
-      'analytics_storage':'denied',
-      'functionality_storage': 'denied',
-      'personalization_storage':'denied',
-      'security_storage':'denied'
-    })
-  </script>
-
   <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -34,23 +17,8 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PWBLGSH');</script>
   <!-- End Google Tag Manager -->
-
-  <script>
-    function acceptCookies() {
-      gtag('consent','update',{
-      'ad_storage':'granted',
-      'analytics_storage':'granted',
-      'functionality_storage': 'denied',
-      'personalization_storage':'denied',
-      'security_storage':'denied'
-    })
-    }
-  </script>
 </head>
 <body class="mat-typography">
-  <button onclick="acceptCookies()">
-    accept Cookies
-</button>
   <app-root></app-root>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWBLGSH"

@@ -1,5 +1,12 @@
 <app-side-navigation>
     <app-search></app-search>
+    <button (click)="acceptCookies()">
+        accept Cookies
+    </button>
+    <button (click)="declineCookies()">
+        decline cookies
+    </button>
+
     <div class="cards" *ngIf="TrashNotes.length && !loading;else NoTrash">
         <app-trash *ngFor="let trash of TrashNotes" [Tnote]="trash" (delete_Retrive)="refresh($event)"></app-trash>
     </div>

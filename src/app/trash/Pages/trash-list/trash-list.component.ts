@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GoogleTagManagerService } from 'src/app/core/services/google-tag-manager/google-tag-manager.service';
 import { SharedService } from 'src/app/shared/services/shared/shared.service';
 import { TrashService } from '../../services/trash/trash.service';
 
@@ -14,7 +15,7 @@ export class TrashListComponent implements OnInit {
   public sortType:string='A-Z';
   public loading:boolean = false;
 
-  constructor(private trashServices:TrashService, private sharedServices:SharedService) { }
+  constructor(private trashServices:TrashService, private sharedServices:SharedService,private gtmService:GoogleTagManagerService) { }
 
   ngOnInit(): void {
     this.getTrashs();
@@ -54,5 +55,12 @@ export class TrashListComponent implements OnInit {
     {
       this.getTrashs();
     }
+  }
+
+  public acceptCookies(){
+    this.gtmService.gtm_updateConsent('granted');
+  }
+  public declineCookies(){
+    this.gtmService.gtm_updateConsent('denied');
   }
 }

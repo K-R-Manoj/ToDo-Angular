@@ -21,7 +21,7 @@ export class GoogleTagManagerService {
   {
     (window as any).dataLayer = (window as any).dataLayer || [];
     (window as any).dataLayer.push(['consent','update',{
-      'ad_storage':'denied',
+      'ad_storage':analytics,
       'analytics_storage':analytics,
       'functionality_storage': 'denied',
       'personalization_storage':'denied',
