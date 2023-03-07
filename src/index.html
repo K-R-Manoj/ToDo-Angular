@@ -34,8 +34,35 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PWBLGSH');</script>
   <!-- End Google Tag Manager -->
+
+  <script>
+    function acceptCookies() {
+      gtag('consent','update',{
+      'ad_storage':'granted',
+      'analytics_storage':'granted',
+      'functionality_storage': 'denied',
+      'personalization_storage':'denied',
+      'security_storage':'denied'
+    })
+    }
+    function declineCookies() {
+      gtag('consent','update',{
+      'ad_storage':'denied',
+      'analytics_storage':'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage':'denied',
+      'security_storage':'denied'
+    })
+    }
+  </script>
 </head>
 <body class="mat-typography">
+  <button (click)="acceptCookies()">
+    accept Cookies
+</button>
+<button (click)="declineCookies()">
+    decline cookies
+</button>
   <app-root></app-root>
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWBLGSH"
