@@ -18,6 +18,13 @@
       dataLayer.push(arguments);
       console.log(dataLayer,"datalayer");
     }
+    gtag('consent','default',{
+      'ad_storage':'denied',
+      'analytics_storage':'denied',
+      'functionality_storage': 'denied',
+      'personalization_storage':'denied',
+      'security_storage':'denied'
+    })
   </script>
 
   <!-- Google Tag Manager -->
@@ -38,23 +45,11 @@
       'security_storage':'denied'
     })
     }
-    function declineCookies() {
-      gtag('consent','update',{
-      'ad_storage':'denied',
-      'analytics_storage':'denied',
-      'functionality_storage': 'denied',
-      'personalization_storage':'denied',
-      'security_storage':'denied'
-    })
-    }
   </script>
 </head>
 <body class="mat-typography">
   <button onclick="acceptCookies">
     accept Cookies
-</button>
-<button onclick="declineCookies">
-    decline cookies
 </button>
   <app-root></app-root>
   <!-- Google Tag Manager (noscript) -->
