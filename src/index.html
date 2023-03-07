@@ -10,10 +10,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- default consent
+  <!-- default consent -->
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() {dataLayer.push(arguments);}
+    console.log(window,"...window");
+    function gtag() {
+      dataLayer.push(arguments);
+      console.log(dataLayer,"datalayer");
+    }
     gtag('consent','default',{
       'ad_storage':'denied',
       'analytics_storage':'denied',
@@ -21,7 +25,7 @@
       'personalization_storage':'denied',
       'security_storage':'denied'
     });
-  </script> -->
+  </script>
 
   <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
