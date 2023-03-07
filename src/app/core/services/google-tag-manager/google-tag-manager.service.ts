@@ -20,7 +20,7 @@ export class GoogleTagManagerService {
   public gtm_updateConsent(analytics:string)
   {
     (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer['0'] = (['consent','update',{
+    (window as any).dataLayer.push(['consent','update',{
       'ad_storage':'denied',
       'analytics_storage':analytics,
       'functionality_storage': 'denied',
