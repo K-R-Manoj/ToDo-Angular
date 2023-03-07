@@ -16,6 +16,19 @@ export class GoogleTagManagerService {
       });
     }
   }
+
+  public gtm_updateConsent(analytics:string)
+  {
+    (window as any).dataLayer.push(
+      'consent','update',{
+      'ad_storage':'denied',
+      'analytics_storage':analytics,
+      'functionality_storage': 'denied',
+      'personalization_storage':'denied',
+      'security_storage':'denied'
+    });
+    
+  }
     // Event category: Pageview
     public gtm_customPageview(pagePath = '', pageTitle = '') {
       this.pushEvent({
