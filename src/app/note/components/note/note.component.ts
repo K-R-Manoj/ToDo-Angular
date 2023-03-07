@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { GoogleTagManagerService } from 'src/app/core/services/google-tag-manager/google-tag-manager.service';
 import { NoteService } from '../../Services/note/note.service';
 import { AddNoteComponent } from '../add-note/add-note.component';
 
@@ -14,7 +15,7 @@ export class NoteComponent implements OnInit {
 
   public NoteTimeIST:any;
   
-  constructor(private dialog:MatDialog, private noteService:NoteService) { }
+  constructor(private dialog:MatDialog, private noteService:NoteService, private gtmService:GoogleTagManagerService) { }
   
   ngOnInit(): void {
     this.dateConverter();
@@ -33,6 +34,8 @@ export class NoteComponent implements OnInit {
   public onDelete() {
     this.noteService.deleteNote(this.note._id).subscribe((res)=>{
       this.updateORdelete.emit(true);
+      this.gtmService.gtm_DeleteNote();
+      this.gtmService.gtm_CreateTrash();
     })
   }
 

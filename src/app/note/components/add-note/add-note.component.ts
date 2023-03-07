@@ -1,6 +1,7 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { GoogleTagManagerService } from 'src/app/core/services/google-tag-manager/google-tag-manager.service';
 import { NoteService } from '../../Services/note/note.service';
 
 interface Tag {
@@ -43,7 +44,8 @@ export class AddNoteComponent implements OnInit {
   constructor( 
     private dialogRef: MatDialogRef<AddNoteComponent>, 
     @Inject(MAT_DIALOG_DATA) public data: {togglevalue: string, notevalue:{Title:string,Tag:string,Description:string,Color:string,_id?:string}},
-    private noteService:NoteService ) { }
+    private noteService:NoteService,
+    private gtmService:GoogleTagManagerService ) { }
 
   ngOnInit(): void {
 
@@ -60,6 +62,7 @@ export class AddNoteComponent implements OnInit {
   {
     this.noteService.addNotes(value).subscribe((res)=>{
       this.isAddNoteSuccessful = true;
+      this.gtmService.gtm_AddNote();
       this.onClose()
     },(err)=>{
       this.isAddNoteSuccessful = false;
@@ -69,6 +72,7 @@ export class AddNoteComponent implements OnInit {
   public onUpdateNoteSubmit(value:any) {
     this.noteService.updateNote(value).subscribe((res)=>{
       this.isUpdateNoteSuccessful = true;
+      this.gtmService.gtm_UpdateNote();
       this.onClose();
     },(err)=>{
       this.isUpdateNoteSuccessful = false;
