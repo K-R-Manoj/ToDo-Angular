@@ -26,6 +26,8 @@ export class GoogleTagManagerService {
       'functionality_storage': 'denied',
       'personalization_storage':'denied',
       'security_storage':'denied'}]);
+    console.log((window as any).dataLayer,"....datalayer");
+    
   }
     // Event category: Pageview
     public gtm_customPageview(pagePath = '', pageTitle = '') {
